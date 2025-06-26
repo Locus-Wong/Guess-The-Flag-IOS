@@ -1,0 +1,26 @@
+# Xcode
+build/
+DerivedData/
+xcuserdata/
+
+# SwiftPM
+.build/
+Packages/
+
+# CocoaPods
+Pods/
+*.xcworkspace
+Podfile.lock
+
+# Carthage
+Carthage/
+
+# Signing files
+*.p12
+*.mobileprovision
+*.cer
+*.pem
+
+# Misc
+*.xcuserstate
+.DS_Store
