@@ -1,9 +1,8 @@
 # Guess The Flag
 This is a mobile game app that lets players guess the country name from the flag. Each game has eight guesses. After the game ends, the total score will be given, and the player will be asked to restart the game.
 </br>
-
-<img width="368" alt="image" src="https://github.com/user-attachments/assets/0d46efea-fc46-4b58-b88d-3a38cc76d655" />
-<img width="368" alt="image" src="https://github.com/user-attachments/assets/e99aa5a2-71f9-4798-b160-a6928f873d60" />
-<img width="368" alt="image" src="https://github.com/user-attachments/assets/18788913-fafb-4d1e-891d-93332ea0b981" />
-<img width="368" alt="image" src="https://github.com/user-attachments/assets/f21bdefd-20a5-48c2-aaeb-f23fe88a20e6" />
+<img width="368" alt="image" src="https://github.com/user-attachments/assets/28215aef-d036-4dba-a1c2-adeea9057196" />
+<img width="369" alt="image" src="https://github.com/user-attachments/assets/6d8d5c52-a1f0-4790-aaf9-47ae99f8a157" />
+<img width="373" alt="image" src="https://github.com/user-attachments/assets/1158b5b9-4197-481d-86cf-643c21ff6f42" />
+<img width="369" alt="image" src="https://github.com/user-attachments/assets/9bb2fca9-448e-4b27-8c54-9e94fd95337a" />
 
