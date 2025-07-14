@@ -44,6 +44,8 @@ struct ContentView: View {
     
     @State private var currentRound = 1
     
+    @State private var animationAmount = 0.0
+    
     var body: some View {
         ZStack{
             RadialGradient(
@@ -78,13 +80,24 @@ struct ContentView: View {
                             flagTapped()
                         } label: {
                             FlagImage(countries: countries, number: number)
+                                .overlay(
+                                    // Show red overlay only if this was tapped and it's wrong
+                                    tappedFlagNumber == number && number != correctAnswer ?
+                                    Color.red.opacity(0.85) : Color.clear // Show red or nothing
+                                        
+                                )
+                                .clipShape(.capsule)
+                                .shadow(radius: 5)
                         }
+                        .rotation3DEffect(.degrees(number == tappedFlagNumber ? animationAmount : 0), axis: (x: 0, y:1 , z: 0))
+                        .opacity(tappedFlagNumber == nil ? 1 : number == tappedFlagNumber ? 1 : 0.25)
+                        
                     }
                     
                 }.frame(maxWidth: .infinity)
                     .padding(.vertical, 20)
                     .background(.regularMaterial)
-                    .clipShape(.rect(cornerRadius: 20))
+                    .clipShape(.rect(cornerRadius: 30))
                 
                 Spacer()
                 Spacer()
@@ -117,18 +130,25 @@ struct ContentView: View {
     }
     
     func flagTapped(){
-        if tappedFlagNumber == correctAnswer{
-            scoreTitle = "Correct"
-            currentScore += 1
-        } else {
-            scoreTitle = "Wrong"
+        withAnimation{
+            animationAmount += 360
         }
-        currentRound += 1
-        showingScore = true
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+            if tappedFlagNumber == correctAnswer{
+                scoreTitle = "Correct"
+                currentScore += 1
+            } else {
+                scoreTitle = "Wrong"
+            }
+            currentRound += 1
+            showingScore = true
+        }
     }
     
     func askQuestion(){
         countries.shuffle()
+        tappedFlagNumber = nil
         correctAnswer = Int.random(in: 0...2)
     }
     
